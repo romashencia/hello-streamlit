@@ -18,7 +18,9 @@ data = pd.read_excel("агрегированные_сделки.xlsx")
 
 # Карта
 
-target_object_type = st.radio("Зависимость цены от расположения для типа", ["здание", "нежилое помещение", "земельный участок"])
+st.header("Цена квадратного метра на карте")
+
+target_object_type = st.radio("Тип объекта:", ["здание", "нежилое помещение", "земельный участок"])
 if target_object_type is not None:
     target_entries = data[data["Тип объекта"] == target_object_type]
 
@@ -32,7 +34,6 @@ if target_object_type is not None:
       center=dict(lat=59.95, lon=30.4), 
       zoom=9,
       radius=20,
-      title=f"Тип объекта: {target_object_type}",
       color_continuous_scale = px.colors.sequential.Plasma,
       opacity=0.8,
       mapbox_style="open-street-map"
