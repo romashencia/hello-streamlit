@@ -33,7 +33,7 @@ if target_object_type is not None:
       z="Начальная цена за квадратный метр",
       center=dict(lat=59.95, lon=30.4), 
       zoom=9,
-      radius=20,
+      radius=10,
       color_continuous_scale = px.colors.sequential.Plasma,
       opacity=0.8,
       mapbox_style="open-street-map"
