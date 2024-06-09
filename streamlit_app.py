@@ -32,6 +32,5 @@ if uploaded_file is not None:
             mapbox_style="open-street-map"
         )
         
-    fig.update_layout(mapbox_style="open-street-map")
-    
-    st.plotly_chart(fig)
+        st.plotly_chart(fig)
+        fig.update_layout(mapbox_style="open-street-map")
