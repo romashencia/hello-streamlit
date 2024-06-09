@@ -89,8 +89,6 @@ for in_cad in [False, True]:
 
   ax[int(in_cad)].legend()
 
-plt.show();
-
 plt.title("Средний рост цены с начала торгов")
 
 st.pyplot(plt.gcf())
@@ -124,4 +122,6 @@ for in_cad in [False, True]:
   ax.set_xticklabels(mean_prices["ВРИ"], rotation=45, ha="right")
 
 plt.tight_layout()
-plt.show();
+st.pyplot(plt.gcf())
+
+st.radio('Pick one:', ['nose','ear'])
