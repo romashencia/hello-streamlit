@@ -9,7 +9,6 @@ MAPBOX_TOKEN = "pk.eyJ1IjoibmJhcnlraW4iLCJhIjoiY2xzc3R2c2ZvMHlweDJscWkxcWc3bG1ta
 px.set_mapbox_access_token(MAPBOX_TOKEN)
 
 data = pd.read_excel("агрегированные_сделки.xlsx")
-st.write(data)
 
 for target_object_type in ["здание", "нежилое помещение", "земельный участок"]:
     target_entries = data[data["Тип объекта"] == target_object_type]
