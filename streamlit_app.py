@@ -2,6 +2,11 @@ import streamlit as st
 import pandas as pd
 from io import StringIO
 import openpyxl
+import plotly.express as px
+
+# Константы
+MAPBOX_TOKEN = "pk.eyJ1IjoibmJhcnlraW4iLCJhIjoiY2xzc3R2c2ZvMHlweDJscWkxcWc3bG1taiJ9.mO3_ujVU5ZxAOJJrwp_v4w"
+px.set_mapbox_access_token(MAPBOX_TOKEN)
 
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
