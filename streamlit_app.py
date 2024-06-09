@@ -57,4 +57,4 @@ plt.legend()
 
 plt.title("Средний рост цены с начала торгов")
 
-st.pyplot()
+st.pyplot(plt.gcf())
