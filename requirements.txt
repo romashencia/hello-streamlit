@@ -8,3 +8,6 @@ pandas-stubs==2.0.3.230814
 plotly==5.15.0
 plotnine==0.12.4
 seaborn==0.13.1
+matplotlib==3.7.1
+matplotlib-inline==0.1.7
+matplotlib-venn==0.11.10
