@@ -17,7 +17,9 @@ px.set_mapbox_access_token(MAPBOX_TOKEN)
 data = pd.read_excel("агрегированные_сделки.xlsx")
 
 # Карта
-for target_object_type in ["здание", "нежилое помещение", "земельный участок"]:
+
+target_object_type = st.radio("Зависимость цены от расположения для типа", ["здание", "нежилое помещение", "земельный участок"])
+if target_object_type is not None:
     target_entries = data[data["Тип объекта"] == target_object_type]
 
     target_entries = target_entries[~target_entries["Начальная цена за квадратный метр"].isna()]
