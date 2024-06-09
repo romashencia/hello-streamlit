@@ -55,6 +55,39 @@ plt.bar(list(map(month_number_to_name, groupped.index)),
 
 plt.legend()
 
+
+# Цена от площади
+
+fig, ax = plt.subplots(2, figsize=(12, 10))
+
+for in_cad in [False, True]:
+  target_entries = data[data["Внутри КАДа"] == in_cad]
+
+  ax[int(in_cad)].scatter(target_entries["Площадь, м2"], target_entries["Начальная цена"], alpha=0.3)
+
+  # Линейная аппроксимация цены от площади
+  linear_approximation = np.polyfit(target_entries["Площадь, м2"], target_entries["Начальная цена"], deg=1)
+
+  approx_xs = np.arange(0, 12000, 1000)
+  approx_ys = approx_xs * linear_approximation[0] + linear_approximation[1]
+
+  ax[int(in_cad)].plot(
+      approx_xs,
+      approx_ys,
+      color="orange",
+      label=f"{round(linear_approximation[0]):,}x + {round(linear_approximation[1]):,}"
+  )
+
+  ax[int(in_cad)].set_title("Внутри КАДа" if in_cad
+                            else "За КАДом")
+
+  ax[int(in_cad)].set_xlabel("Площадь, м2")
+  ax[int(in_cad)].set_ylabel("Цена в рублях")
+
+  ax[int(in_cad)].legend()
+
+plt.show();
+
 plt.title("Средний рост цены с начала торгов")
 
 st.pyplot(plt.gcf())
