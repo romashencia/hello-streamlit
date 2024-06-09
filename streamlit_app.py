@@ -4,11 +4,11 @@ from io import StringIO
 import openpyxl
 
 uploaded_file = st.file_uploader("Choose a file")
-dataframe = None
+data = None
 if uploaded_file is not None:
 
     # Can be used wherever a "file-like" object is accepted:
-    dataframe = pd.read_excel(uploaded_file)
+    data = pd.read_excel(uploaded_file)
     st.write(dataframe)
 
 for target_object_type in ["здание", "нежилое помещение", "земельный участок"]:
