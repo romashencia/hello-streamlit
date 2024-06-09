@@ -41,7 +41,7 @@ df = pd.DataFrame(data)
 
 st.write(df)
 
-st.write("Now I want to evaluate the responses from my model. "
+st.write("ABOBANow I want to evaluate the responses from my model. "
          "One way to achieve this is to use the very powerful `st.data_editor` feature. "
          "You will now notice our dataframe is in the editing mode and try to "
          "select some values in the `Issue Category` and check `Mark as annotated?` once finished 👇")
