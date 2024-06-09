@@ -134,6 +134,16 @@ st.text("""Так и получилось. На объекты внутри КА
 
 # Цена от ВРИ
 
+st.header("Зависимость цены от ВРИ")
+
+st.markdown(r"""ВРИ - вид разрешенного использования участка. 
+От него зависит, что может быть построено на участке, 
+какая у него кадастровая стоимость, 
+ставка налога и прочее. Например, помещения, 
+на которых можно открыть склад, дешевле, чем помещения 
+под офисы. Подробнее про ВРИ можно прочитать
+[здесь](https://zakon.ru/blog/2022/11/29/neochevidnye_posledstviya_izmeneniya_razreshyonnogo_ispolzovaniya_uchastka#:~:text=%D0%9A%D0%B0%D0%B4%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B2%D0%B0%D1%8F%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%BA%D0%B0%20%D0%B2%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8,%D0%BA%20%D1%80%D0%B0%D0%B7%D0%BD%D1%8B%D0%BC%20%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%B0%D0%BC%20%D0%B8%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%B0%D0%BC""")
+
 fig, axs = plt.subplots(1, 2, figsize=(20, 10), sharey=True)
 
 for in_cad in [False, True]:
@@ -163,5 +173,5 @@ for in_cad in [False, True]:
 plt.tight_layout()
 st.pyplot(plt.gcf())
 
-s = st.radio('Pick one:', ['nose','ear'])
-st.write(f"Hello, {s}")
+st.header("Выводы")
+
