@@ -30,5 +30,5 @@ for target_object_type in ["здание", "нежилое помещение", 
       mapbox_style="open-street-map"
     )
     
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
     fig.update_layout(mapbox_style="open-street-map")
