@@ -101,9 +101,7 @@ st.pyplot(plt.gcf())
 
 fig, axs = plt.subplots(1, 2, figsize=(20, 10), sharey=True)
 
-in_cad = st.radio("Зависимость цены от площади для объектов:", ["внутри КАДа", "за КАДом"])
-if in_cad is not None:
-  in_cad = in_cad == "внутри КАДа"
+for in_cad in [False, True]:
   ax = axs[int(in_cad)]
 
   target_entries = data[data["Внутри КАДа"] == in_cad][["ВРИ", "Начальная цена за квадратный метр"]]
