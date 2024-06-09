@@ -42,6 +42,9 @@ if target_object_type is not None:
     fig.update_layout(mapbox_style="open-street-map")
 
 # Относительный рост
+
+st.header("Относительный рост цены с начала торгов")
+
 MONTH_NAMES = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
 
 data["Относительный рост цены"] = data["Итоговая цена"] / data['Начальная цена']
@@ -92,8 +95,6 @@ for in_cad in [False, True]:
   ax[int(in_cad)].set_ylabel("Цена в рублях")
 
   ax[int(in_cad)].legend()
-
-plt.title("Средний рост цены с начала торгов")
 
 st.pyplot(plt.gcf())
 
