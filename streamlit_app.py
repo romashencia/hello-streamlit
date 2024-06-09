@@ -93,3 +93,34 @@ plt.show();
 plt.title("Средний рост цены с начала торгов")
 
 st.pyplot(plt.gcf())
+
+# Цена от ВРИ
+
+fig, axs = plt.subplots(1, 2, figsize=(20, 10), sharey=True)
+
+for in_cad in [False, True]:
+  ax = axs[int(in_cad)]
+
+  target_entries = data[data["Внутри КАДа"] == in_cad][["ВРИ", "Начальная цена за квадратный метр"]]
+
+  mean_prices = target_entries.groupby('ВРИ').mean().reset_index()
+  mean_prices.columns = ['ВРИ', 'Средняя цена']
+
+  # Сокращаем названия, чтобы помещались
+  def truncate_labels(label, max_length=50):
+      if len(label) > max_length:
+          return label[:max_length] + '...'
+      return label
+
+  mean_prices['ВРИ'] = mean_prices['ВРИ'].apply(lambda x: truncate_labels(x))
+
+  sns.barplot(x='ВРИ', y='Средняя цена', data=mean_prices, palette='viridis', ax=ax)
+
+  ax.set_ylabel('Средняя цена за квадратный метр')
+  ax.set_title("Внутри КАДа" if in_cad
+                            else "За КАДом")
+
+  ax.set_xticklabels(mean_prices["ВРИ"], rotation=45, ha="right")
+
+plt.tight_layout()
+plt.show();
