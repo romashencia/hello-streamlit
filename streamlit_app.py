@@ -124,4 +124,5 @@ for in_cad in [False, True]:
 plt.tight_layout()
 st.pyplot(plt.gcf())
 
-st.radio('Pick one:', ['nose','ear'])
+s = st.radio('Pick one:', ['nose','ear'])
+st.write(f"Hello, {s}")
