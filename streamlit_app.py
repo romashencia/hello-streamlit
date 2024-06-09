@@ -34,25 +34,25 @@ for target_object_type in ["здание", "нежилое помещение", 
     st.plotly_chart(fig, use_container_width=True)
     fig.update_layout(mapbox_style="open-street-map")
 
-# Относительный рост
-MONTH_NAMES = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+# # Относительный рост
+# MONTH_NAMES = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
 
-data["Относительный рост цены"] = data["Итоговая цена"] / data['Начальная цена']
-target = data[~(data["Относительный рост цены"].isna() | data["Дата сделки"].isna())]
-target["Месяц сделки"] = target["Дата сделки"].dt.month
+# data["Относительный рост цены"] = data["Итоговая цена"] / data['Начальная цена']
+# target = data[~(data["Относительный рост цены"].isna() | data["Дата сделки"].isna())]
+# target["Месяц сделки"] = target["Дата сделки"].dt.month
 
-groupped = target[["Месяц сделки", "Относительный рост цены"]].groupby("Месяц сделки").mean()
-groupped.sort_index(inplace=True)
+# groupped = target[["Месяц сделки", "Относительный рост цены"]].groupby("Месяц сделки").mean()
+# groupped.sort_index(inplace=True)
 
-plt.figure(figsize=(14, 6))
+# plt.figure(figsize=(14, 6))
 
-month_number_to_name = lambda number: MONTH_NAMES[number - 1]
+# month_number_to_name = lambda number: MONTH_NAMES[number - 1]
 
-plt.bar(list(map(month_number_to_name, groupped.index)),
-        groupped["Относительный рост цены"], color="red", label=f"Кол-во сделок: {len(target)}")
+# plt.bar(list(map(month_number_to_name, groupped.index)),
+#         groupped["Относительный рост цены"], color="red", label=f"Кол-во сделок: {len(target)}")
 
-plt.legend()
+# plt.legend()
 
-plt.title("Средний рост цены с начала торгов")
+# plt.title("Средний рост цены с начала торгов")
 
-st.pyplot()
+# st.pyplot()
